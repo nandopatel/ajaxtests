@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+</head>
+<body>
+<h1 id="head1">Hello</h1>
+<p id="para1"></p>
+<button>ClickMe</button>
+<script>
+    $(document).ready(function(){
+       $.ajax("/ajax_data", {
+           success: function (response) {
+               var json = JSON.parse(response);
+               $("#head1").html(json["a"]);
+               $("#para1").html(json["c"]);
+           }
+       });
+    });
+
+</script>
+
+
+</body>
+</html>
+
+
+
+<!--<script>
+    $(document).ready(function(){
+       $('button').click(function () {
+           $("#head1").text("Response!");
+       })
+
+    });
+
+</script>-->
